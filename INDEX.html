@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Allaria</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* Degradado de azul oscuro para el fondo de la página */
+            background: linear-gradient(to right, #0a2d53, #1e4f8a); 
+            color: #f4f4f9; 
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #0d386b; 
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            padding-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 0;
+            font-weight: normal;
+            color: #b3cde3; 
+        }
+
+        .banner-container {
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            margin-bottom: 0; 
+            position: relative; 
+        }
+
+        .banner-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block; 
+        }
+
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            z-index: 10;
+        }
+
+        /* --- ESTILOS COMPARTIDOS PARA AMBOS ENLACES FLOTANTES --- */
+        .floating-link-container, .floating-link-container-left {
+            position: fixed; /* Fijo respecto a la ventana del navegador */
+            top: 50%;
+            width: 280px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #0d386b;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            z-index: 100;
+            transform: translateY(-50%); /* Centrado vertical */
+        }
+        
+        /* Posicionamiento del enlace Derecho */
+        .floating-link-container {
+            right: 5%; 
+        }
+
+        /* Posicionamiento del enlace Izquierdo */
+        .floating-link-container-left {
+            left: 5%; 
+        }
+
+        /* Estilos de contenido compartidos */
+        .floating-link-container p, .floating-link-container-left p {
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .floating-link-container a, .floating-link-container-left a {
+            display: block; 
+            text-align: center;
+            padding: 10px;
+            background-color: #1e4f8a;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .floating-link-container a:hover, .floating-link-container-left a:hover {
+            background-color: #0d386b;
+        }
+        /* --- FIN ESTILOS FLOTANTES --- */
+
+
+        /* --- ENLACE CORPORATIVO (DEBAJO DEL BANNER) --- */
+        .corporate-link {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        .corporate-link a {
+            color: #b3cde3; 
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: 2px solid #b3cde3;
+            padding-bottom: 3px;
+            transition: color 0.3s;
+        }
+        .corporate-link a:hover {
+            color: white;
+            border-bottom-color: white;
+        }
+        /* --- FIN ENLACE CORPORATIVO --- */
+
+
+        .enlaces-rapidos {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(to right, #0a2d53, #1e4f8a); 
+            border: 1px solid #77aadd; 
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 40px; 
+        }
+
+        .enlaces-rapidos p {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: white; 
+        }
+        
+        .enlaces-rapidos ul {
+            list-style: none;
+            padding: 0;
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 25px; 
+        }
+
+        .enlaces-rapidos li {
+            margin: 0;
+        }
+
+        .enlaces-rapidos a {
+            text-decoration: none;
+            color: white; 
+            font-weight: bold;
+            padding: 8px 15px;
+            border: 1px solid white; 
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            white-space: nowrap; 
+        }
+
+        .enlaces-rapidos a:hover {
+            background-color: white; 
+            color: #0a2d53; 
+        }
+
+        .image-gallery {
+            width: 90%; 
+            margin: 0 auto 50px auto; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            flex-wrap: wrap; 
+            gap: 20px; 
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1); 
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .image-gallery img {
+            width: 30%; 
+            max-width: 300px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* --- ENLACE INFERIOR (CENTRO) --- */
+        .bottom-link {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0 40px 0; /* Más padding abajo */
+        }
+        .bottom-link a {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #f4f4f9;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #f4f4f9;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .bottom-link a:hover {
+            background-color: #f4f4f9;
+            color: #0a2d53;
+        }
+        /* --- FIN ENLACE INFERIOR --- */
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Compliance Allaria</h1>
+    </header>
+
+    <!-- Enlace Flotante a la Gema (Derecha) - TÍTULO ACTUALIZADO -->
+    <div class="floating-link-container">
+        <p>¿Los comerciales te pidieron una apertura urgente? Pasame la DJ Accionaria y la miro a lo Usain Bolt</p>
+        <a href="https://gemini.google.com/gem/6605e61ecc85" target="_blank">Cálculo de participaciones accionarias</a>
+    </div>
+
+    <!-- Nuevo Enlace Flotante a la Gema (Izquierda) -->
+    <div class="floating-link-container-left">
+        <p>¿PROBLEMAS CON ESCO BOLSA?</p>
+        <a href="https://gemini.google.com/gem/aea5b1ddd987?usp=sharing" target="_blank">ACÁ TENÉS LA SOLUCIÓN!!</a>
+    </div>
+
+    <div class="banner-container">
+        <img src="banner.png" alt="Imagen de banner de Compliance">
+        <span class="banner-text"></span>
+    </div>
+
+    <!-- Enlace Corporativo (Debajo del Banner) -->
+    <div class="corporate-link">
+        <a href="https://allaria.com.ar/" target="_blank">SOBRE NOSOTROS</a>
+    </div>
+
+    <nav class="enlaces-rapidos">
+        <p>Enlaces rápidos:</p>
+        <ul>
+            <!-- ENLACES DE NOTICIAS ACTUALIZADOS -->
+            <li><a href="https://www.argentina.gob.ar/uif" target="_blank">NOTICIAS NACIONALES (UIF)</a></li> 
+            <li><a href="https://www.fatf-gafi.org/en/home.html" target="_blank">NOTICIAS INTERNACIONALES (GAFI)</a></li> 
+        </ul>
+    </nav>
+
+    <div class="image-gallery">
+        <img src="img1.png" alt="Imagen 1 de Compliance">
+    </div>
+
+    <!-- Enlace Inferior (Centro) -->
+    <div class="bottom-link">
+        <a href="https://www.plclex.com" target="_blank">Consultá con nuestros asesores del estudio PYLA</a>
+    </div>
+
+
+<script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/11/07/18/20251107181513-JZWXG0V5.js" defer></script>
+</body>
+</html>
